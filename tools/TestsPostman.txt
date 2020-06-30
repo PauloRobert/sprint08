@@ -1,0 +1,35 @@
+pm.test("Validar texto do código", function () {
+    pm.expect(pm.response.text()).to.include("cod_sts_pgm_res");
+});
+
+pm.test("O cabeçalho do tipo de conteúdo está presente", function () {
+    pm.response.to.have.header("Content-Type");
+});
+
+
+
+pm.test("O tempo de resposta é inferior a 200 microsegundos", function () {
+    pm.expect(pm.response.responseTime).to.be.below(200);
+});
+
+pm.test("O código de status é 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("O nome do código do Status Code contém uma sequência em texto", function () {
+    pm.response.to.have.status("OK");
+});
+
+pm.test("Código de status da solicitação POST bem-sucedida", function () {
+    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);
+});
+
+pm.test("Assert no comprimento de resultados quando já se sabe a quantidade", function () {
+     pm.expect('Codigo').to.have.lengthOf(6);
+    });
+
+pm.test("Multiplas validações", function () {
+     pm.response.to.be.ok;
+     pm.response.to.be.withBody;
+     pm.response.to.be.json;
+});
