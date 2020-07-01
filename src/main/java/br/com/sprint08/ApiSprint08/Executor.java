@@ -8,7 +8,7 @@ import org.junit.runner.notification.Failure;
 public class Executor {
 	public static void main(String[] args) {
 
-		Result result = JUnitCore.runClasses(SituacaoResgate.class);
+		Result result = JUnitCore.runClasses(SituacaoResgate.class, ListaNomedaParceria.class);
 		int QuantidadeFalhas = result.getFailureCount();
 
 		for (Failure failure : result.getFailures()) {
